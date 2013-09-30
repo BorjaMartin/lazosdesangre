@@ -1,0 +1,21 @@
+<%= image_tag("header.png", :id => "header") %>
+<%= link_to 'New Post', new_post_path %>
+<table id="table-2">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.title %></td>
+        <td>
+        	<%= link_to 'Edit', edit_post_path(post) %>
+        	<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
